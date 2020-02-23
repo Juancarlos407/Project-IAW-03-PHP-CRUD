@@ -1,6 +1,23 @@
+<?php
+//connect to the data base
+require_once "connection.php";
+
+
+
+
+
+?>
 <html>
 <body>
-<h2>Create Form</h2>
+  <style>
+  body {
+    background-image: url('Marca de agua.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  </style>
+<h2 style="font-family:verdana;">Create Form</h2>
 <form action="create.php" method="get">
 <p>Car registration plate (Matrícula): <input type="text" name="plate"></p>
 <p>Colour: <input type="text" name="colour"></p>

@@ -1,6 +1,7 @@
 <?php
 if($_SERVER["REQUEST_METHOD"]=="GET"){
   //As the plate is the primary key, it cannot be null o empty
+
   if ($_GET["plate"]!=null && $_GET["plate"]!=""){
     //create vars with values
     $plate = $_GET["plate"];
@@ -9,19 +10,18 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     $car_engine = $_GET["engine"];
 
     //connect to the data base
-	//ADD INFORMATION NEEDED TO CONNECT TO YOUR DATABASE
-    $db = new mysqli('','','','');
-    //check if there is any problem to connect to the data base
-    if ($db->connect_errno != null) {
-      echo "An unexpected error happened.</br> Error number $db->connect_errno when conneting to the database.</br> Error message: $db->connect_error ";
-      exit();
-    }else{
-      //check if the plate already exist in the table cars as is a primary key
-      $query_select="Select * from cars where plate='$plate'";
-      //echo "query_select $query_select</br>";
-      $result_select = $db->query($query_select);
-      $cars=$result_select->fetch_object();
+    require_once "connection.php";
 
+//check if there is any problem to connect to the data base
+if ($db->connect_errno != null) {
+  echo "An unexpected error happened.</br> Error number $db->connect_errno when conneting to the database.</br> Error message: $db->connect_error ";
+  exit();
+}else{
+  //check if the plate already exist in the table cars as is a primary key
+  $query_select="Select * from cars where plate='$plate'";
+  //echo "query_select $query_select</br>";
+  $result_select = $db->query($query_select);
+  $cars=$result_select->fetch_object();
        if($cars != null){
               echo "The plate already exist, so it cannot be added. Go to Read or Update in case you need it</br>";
         }else{
@@ -51,7 +51,15 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
 ?>
 <html>
 <body>
-<h2>Create Result</h2>
+  <style>
+  body {
+    background-image: url('Marca de agua.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  </style>
+<h2 style="font-family:verdana;">Create Result</h2>
 <!--we are using GET method to see de parameters in the url-->
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="GET">
 <p>Car registration plate (Matrícula): <input type="text" name="plate"></p>
