@@ -1,6 +1,6 @@
 # Projecte-IAW-03-PHP-DB-CRUD
 
-Este proyecto tiene la finalidad de crear una aplicación CRUD para gestionar una base de datos de coches previamente creada en phpmyadmin y conectada a la aplicación a traves de connection.php desde localhost.
+Este proyecto tiene la finalidad de crear una aplicación CRUD para gestionar una base de datos de coches previamente creada en phpmyadmin y conectada a la aplicación a través de connection.php desde localhost.
 
 ## 0- Connection.php ok (no adjuntado)
 
