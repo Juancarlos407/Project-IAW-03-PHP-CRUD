@@ -15,7 +15,7 @@ Con read podemos buscar cada coche por su matrícula, falta implementar una vist
 Con update podemos modificar características de los coches a través de su matrícula
 
 ## 4- Delete.php
-Por último para borrar una entrada
+Para borrar una entrada
 
 ## Para hacer comprobaciones:
 
